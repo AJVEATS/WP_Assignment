@@ -6,19 +6,19 @@
         <script src="js/index.js"></script>
     </head>
     <body>
-        <div class="loginBox">
-            <form action="" method="">
-                <div class="loginInput">
-                    <h1>Login</h1>
-                    <label for="username"><b>Username:</b></label>
-                    <input type="text" placeholder="Enter username" name="username" required><br>
-
-                    <label for="password"><b>Password:</b></label>
-                    <input type="text" placeholder="Enter password" name="password" required><br>
-
-                    <button type="submit">Login</button>
+        <section id="loginSection">
+            <div class="loginBox">
+                <h1>Login</h1>
+                <div>
+                    <form id="userLoginForm">
+                        <label for="username">Username:</label><br>
+                        <input class="inputBox" id="username" name="username" type="text"><br>
+                        <label for="password">Password:</label><br>
+                        <input class="inputBox" id="password" name="password" type="password"><br>
+                        <input class="loginButton" id="submitUserLogin" type="button" onclick="" value="Login"><br>
+                    </form>
                 </div>
-            </form>
-        </div>
+            </div>
+        </section>
     </body>
 </html>
