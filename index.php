@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="eng">
     <head>
         <title>Web programming assignment</title>
         <style>
@@ -9,12 +9,6 @@
                 background-color: #ffffff;
                 font-family: Arial, Helvetica, sans-serif;
                 color: #333333;
-            }
-            .pageContent {
-                font-family: Arial, Helvetica, sans-serif;
-                text-align: center;
-                color: #333333;
-                text-shadow: 1px 1px 1px #ffffff;
             }
             .pageContent button {
                 padding: 6px 10px;

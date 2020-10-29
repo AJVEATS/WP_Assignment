@@ -30,7 +30,7 @@
 }  
 .navigationBar .loginContainer button {
     float: right;
-    padding: 6px 10px;
+    padding: 6px;
     margin-top: 8px;
     margin-right: 16px;
     background-color: #333333;
@@ -38,9 +38,12 @@
     font-size: 17px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 } 
 .navigationBar .loginContainer button:hover {
     background-color: #ffffff;
+    border-style: solid;
+    color: #333333;
 }
 @media screen and (max-width: 600px) {
     .navigationBar a:not(:first-child) {display: none;}
@@ -62,9 +65,8 @@
         text-align: left;
     }
 }
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .pageContent {
-    font-family: 'Bebas Neue', cursive;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     color: #333333;
     text-shadow: 1px 1px 1px #ffffff;
