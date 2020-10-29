@@ -30,12 +30,15 @@
             h1 {
                 text-align: center;
                 padding-top: 10%;
-                font-size: 125px;
-                padding-bottom: 0%;
+                font-size: 100px;
+                padding-bottom: 0;
             }
         </style>
     </head>
-    <body background="">
+    <?php
+        $usernameTemp = "Alexander";
+    ?>
+    <body>
         <div class="navigationBar" id="navigationBar">
             <a href="userHome.php" class="active">Home</a>
             <a href="about.php" class="active">About us</a>
@@ -43,9 +46,6 @@
                 <button type="submit">Logout<button>
             </div>
         </div>
-        <?php
-            $usernameTemp = "$usernameTemp";
-            echo "<h1>Welcome back $usernameTemp</h1>";
-        ?>
+        <h1>Welcome Back, <?php echo "$usernameTemp"; ?></h1>
     </body>
 </html>

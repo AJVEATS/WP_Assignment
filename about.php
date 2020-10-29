@@ -11,7 +11,10 @@
             }
         </style>
     </head>
-    <body background="">
+    <?php
+
+    ?>
+    <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
             <a href="about.php" class="active">About us</a>

@@ -2,49 +2,50 @@
 <html>
     <head>
         <title>Web programming assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/navigationBar.css">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+            <?php include 'navigationBar.css';?>
             body {
                 margin: 0;
                 background-color: #ffffff;
                 font-family: Arial, Helvetica, sans-serif;
+                color: #333333;
             }
             .pageContent {
-                font-family: 'Bebas Neue', cursive;
+                font-family: Arial, Helvetica, sans-serif;
                 text-align: center;
                 color: #333333;
                 text-shadow: 1px 1px 1px #ffffff;
             }
             .pageContent button {
-                float: center;
                 padding: 6px 10px;
                 margin-top: 8px;
                 margin-right: 16px;
                 background-color: #333333;
                 color: #ffffff;
-                font-size: 17px;
+                font-size: 30px;
                 border: none;
                 cursor: pointer;
-                border-radius: 10px;
+                border-radius: 5px;
+                justify-content: center;
             }
             .pageContent button:hover {
                 background-color: #ffffff;
+                border-style: solid;
                 border-color: #333333;
+                color: #333333;
             }
             h1 {
                 text-align: center;
                 padding-top: 10%;
-                font-size: 125px;
-                padding-bottom: 0%;
+                font-size: 100px;
+                padding-bottom: 0;
             }
             h2 {
                 font-size: 40px;
             }
-            <?php include 'navigationBar.css'; ?>
         </style>
     </head>
-    <body background="">
+    <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
             <a href="about.php" class="active">About us</a>
@@ -57,12 +58,8 @@
             </div>
         </div>
         <div class="pageContent" id="pageContent">
-            <h1>Web Programming Assigment</h1>
-            <h2>To create an account click below</h2>
+            <h1>Web Programming Assignment</h1>
             <button type="button">Create account</button>
         </div>
     </body>
 </html>
-
-<?php
-?>
