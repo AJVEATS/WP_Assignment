@@ -21,5 +21,13 @@
             </div>
         </div>
         <h1>Create account</h1>
+        <div class="newUser" id="newUser">
+            <form action="newUser.php" method="POST">
+                <input type="text" name="newUsername" placeholder="username"><br>
+                <input type="password" name="newPassword" placeholder="password"><br>
+                <input type="password" name="newPasswordConfirm" placeholder="confirm password"><br>
+                <button type="submit" name="newUser" value="submit">Create account</button>
+            </form>
+        </div>
     </body>
 </html>
