@@ -2,42 +2,8 @@
 <html lang="eng">
     <head>
         <title>Web programming assignment</title>
-        <style>
-            <?php include 'navigationBar.css';?>
-            body {
-                margin: 0;
-                background-color: #ffffff;
-                font-family: Arial, Helvetica, sans-serif;
-                color: #333333;
-            }
-            .pageContent button {
-                padding: 6px 10px;
-                margin-top: 8px;
-                margin-right: 16px;
-                background-color: #333333;
-                color: #ffffff;
-                font-size: 30px;
-                border: none;
-                cursor: pointer;
-                border-radius: 5px;
-                justify-content: center;
-            }
-            .pageContent button:hover {
-                background-color: #ffffff;
-                border-style: solid;
-                border-color: #333333;
-                color: #333333;
-            }
-            h1 {
-                text-align: center;
-                padding-top: 10%;
-                font-size: 100px;
-                padding-bottom: 0;
-            }
-            h2 {
-                font-size: 40px;
-            }
-        </style>
+        <link rel="stylesheet" href="static/css/index.css">
+        <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
     <body>
         <div class="navigationBar" id="navigationBar">
@@ -53,7 +19,7 @@
         </div>
         <div class="pageContent" id="pageContent">
             <h1>Web Programming Assignment</h1>
-            <button type="button">Create account</button>
+            <button type="button" onclick="location.href='createAccount.php'">Create account</button>
         </div>
     </body>
 </html>

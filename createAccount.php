@@ -2,20 +2,8 @@
 <html>
     <head>
         <title>Create an account</title>
-        <style>
-            <?php include 'navigationBar.css'; ?>
-            body {
-                margin: 0;
-                background-color: #ffffff;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            h1 {
-                text-align: center;
-                padding-top: 10%;
-                font-size: 125px;
-                padding-bottom: 0;
-            }
-        </style>
+        <link rel="stylesheet" href="static/css/createAccount.css">
+        <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
     <?php
 
@@ -32,5 +20,6 @@
                 </form>
             </div>
         </div>
+        <h1>Create account</h1>
     </body>
 </html>
