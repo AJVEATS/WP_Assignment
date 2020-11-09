@@ -5,29 +5,40 @@
         <link rel="stylesheet" href="static/css/createAccount.css">
         <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
-    <?php
-
-    ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
             <a href="about.php" class="active">About us</a>
             <div class="loginContainer">
-                <form action="login.php">
+                <form action="login.php" method="POST">
                     <input type="text" placeholder="Username" name="username">
                     <input type="text" placeholder="Password" name="password">
-                    <button type="submit">Login</button>
+                    <button type="submit" name="userLogin" value="submit">Login</button>
                 </form>
             </div>
         </div>
         <h1>Create account</h1>
-        <div class="newUser" id="newUser">
-            <form action="newUser.php" method="POST">
-                <input type="text" name="newUsername" placeholder="username"><br>
-                <input type="password" name="newPassword" placeholder="password"><br>
-                <input type="password" name="newPasswordConfirm" placeholder="confirm password"><br>
-                <button type="submit" name="newUser" value="submit">Create account</button>
+        <div class="newUserForm">
+            <form action="createAccount.php" method="POST">
+                <input type="text" placeholder="username" name="newUsername"><br>
+                <input type="password" placeholder="password" name="newPassword"><br>
+                <input type="password" placeholder="confirm password" name="newPasswordConfirm"><br>
+                <button type="submit" name="newUserButton" value="submit">Create account</button>
             </form>
+            <?php
+                if (isset($_POST['newUserButton'])) {
+                    if ($_POST['newPassword'] === $_POST['newPasswordConfirm']) {
+                        $username = $_POST['newUsername'];
+                        $password = $_POST['newPassword'];
+                        $passwordConfirm = $_POST['newPasswordConfirm'];
+                        echo "<p>Username: " . $username . "<br>Password: " . $password . "<br>Confirm password: " . $passwordConfirm . "</p>";
+                    } else {
+                        echo '<script type="text/javascript">
+                                alert("Passwords do not match please enter your password in again")
+                              </script>';
+                    }
+                }
+            ?>
         </div>
     </body>
 </html>

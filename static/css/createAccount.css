@@ -10,3 +10,29 @@ h1 {
     font-size: 125px;
     padding-bottom: 0;
 }
+.newUserForm {
+    border-style: solid;
+    border-color: #333333;
+    border-radius: 25px;
+    width: 50%;
+    justify-content: center;
+}
+.newUserForm input[type=text], [type=password] {
+    width: 95%;
+    padding: 12px;
+    margin: 8px;
+    display: inline-block;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.newUserButton {
+    width: 20%;
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
