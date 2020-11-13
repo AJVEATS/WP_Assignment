@@ -4,3 +4,4 @@
         $password = $_POST['password'];
         echo "<p>Username: ".$username."<br> Password: ".$password."</p>";
     }
+?>

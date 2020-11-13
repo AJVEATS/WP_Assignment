@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="static/css/navigationBar.css">
 </head>
 <body>
+<?php
+    include "databaseConnection.php";
+    include "login.php";
+?>
 <div class="navigationBar" id="navigationBar">
     <a href="index.php" class="active">Home</a>
     <a href="about.php" class="active">About us</a>
@@ -19,7 +23,11 @@
 </div>
 <div class="pageContent" id="pageContent">
     <h1>Web Programming Assignment</h1>
-    <button type="button" onclick="location.href='createAccount.php'">Create account</button>
+    <h2>If you don't have an account <a href="createAccount.php">click here</a></h2>
+    <!--<button type="button" onclick="location.href='createAccount.php'">Create account</button>-->
 </div>
+<?php
+    mysqli_close($connection);
+?>
 </body>
 </html>
