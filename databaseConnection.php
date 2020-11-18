@@ -13,7 +13,7 @@ $database = $username;
 
 $connection = mysqli_init();
 if (!$connection) {
-    echo "<p>Initalising MySQLi failed</p>";
+    echo "<p>Initialising MySQLi failed</p>";
 } else {
     mysqli_ssl_set($connection, NULL, NULL, NULL, '/public_html/sys_tests', NULL);
     mysqli_real_connect($connection, $host, $username, $password, $database, $port, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);

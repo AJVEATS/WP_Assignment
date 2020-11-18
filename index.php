@@ -7,7 +7,6 @@
 </head>
 <body>
 <?php
-    include "databaseConnection.php";
     include "login.php";
 ?>
 <div class="navigationBar" id="navigationBar">
@@ -26,8 +25,5 @@
     <h2>If you don't have an account <a href="createAccount.php">click here</a></h2>
     <!--<button type="button" onclick="location.href='createAccount.php'">Create account</button>-->
 </div>
-<?php
-    mysqli_close($connection);
-?>
 </body>
 </html>

@@ -17,7 +17,7 @@ h1 {
     width: 50%;
     justify-content: center;
 }
-.newUserForm input[type=text], [type=password] {
+.newUserForm input[type=text], [type=password], [type=email] {
     width: 95%;
     padding: 12px;
     margin: 8px;

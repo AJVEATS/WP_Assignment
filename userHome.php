@@ -6,7 +6,9 @@
         <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
     <?php
-        $usernameTemp = "";
+        include "databaseConnection.php";
+
+        $user_login_query_string = "SELECT * from user_tbl where "
     ?>
     <body>
         <div class="navigationBar" id="navigationBar">
