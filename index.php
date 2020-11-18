@@ -10,10 +10,10 @@
     include "login.php";
 ?>
 <div class="navigationBar" id="navigationBar">
-    <a href="index.php" class="active">Home</a>
+    <a href="login.php" class="active">Home</a>
     <a href="about.php" class="active">About us</a>
     <div class="loginContainer">
-        <form action="login.php" method="POST">
+        <form action="" method="POST">
             <input type="text" placeholder="Username" name="username">
             <input type="text" placeholder="Password" name="password">
             <button type="submit" name="userLogin" value="submit">Login</button>

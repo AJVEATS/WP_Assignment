@@ -38,6 +38,7 @@
                         $create_account_string = "INSERT INTO user_tbl(user_name, user_email, user_password) VALUES ('$username', '$userEmail', '$password');";
                         if (mysqli_query($connection, $create_account_string)) {
                             echo '<script>console.log("user added to the table");</script>';
+                            header('Location: userHome.php');
                         }
                     } else {
                         echo '<script type="text/javascript">
@@ -45,7 +46,6 @@
                               </script>';
                     }
                 }
-                mysqli_close($connection);
             ?>
         </div>
     </body>

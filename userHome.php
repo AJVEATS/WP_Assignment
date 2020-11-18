@@ -7,17 +7,18 @@
     </head>
     <?php
         include "databaseConnection.php";
-
-        $user_login_query_string = "SELECT * from user_tbl where "
+        include "session.php";
+        $userCheck = $_SESSION['login_user'];
+        //echo "<p> $userCheck <p>"
     ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="userHome.php" class="active">Home</a>
             <a href="about.php" class="active">About us</a>
             <div class="userLogout">
-                <button type="submit">Logout<button>
+                <a href="logout.php">Logout<button>
             </div>
         </div>
-        <h1>Welcome Back, <?php echo "$usernameTemp"; ?></h1>
+        <h1>Welcome Back, <?php echo $userCheck; ?></h1>
     </body>
 </html>
