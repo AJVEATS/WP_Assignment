@@ -21,6 +21,8 @@ include "databaseConnection.php";
             header("location: userHome.php");
         } else {
             $error = "Your login username or password is invalid";
+            header("location: createAccount.php");
+            echo '<script>console.log("user details are incorrect"); </script>';
         }
 
     }

@@ -8,17 +8,18 @@
     <?php
         include "databaseConnection.php";
         include "session.php";
-        $userCheck = $_SESSION['login_user'];
-        //echo "<p> $userCheck <p>"
+        $username = $_SESSION['login_user'];
     ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="userHome.php" class="active">Home</a>
             <a href="about.php" class="active">About us</a>
             <div class="userLogout">
-                <a href="logout.php">Logout<button>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
-        <h1>Welcome Back, <?php echo $userCheck; ?></h1>
+        <div>
+        <h1>Welcome Back, <?php echo "$username"; ?></h1>
+        </div>
     </body>
 </html>
