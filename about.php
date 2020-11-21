@@ -5,6 +5,13 @@
         <link rel="stylesheet" href="static/css/about.css">
         <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
+    <?php
+        session_start();
+        include "session.php";
+        include "login.php";
+        //$userCheck = $_SESSION['login_user'];
+        //echo $userCheck;
+    ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>

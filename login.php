@@ -1,7 +1,7 @@
 <?php
 include "databaseConnection.php";
     session_start();
-
+    $connection = mysqli_init();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $username = mysqli_real_escape_string($connection,$_POST['username']);
@@ -33,3 +33,4 @@ include "databaseConnection.php";
         $user_login_query_string = "SELECT user_name, user_password FROM user_tbl WHERE user_name='$username'";
 
     }
+?>
