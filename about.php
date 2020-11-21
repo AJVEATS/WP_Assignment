@@ -5,9 +5,6 @@
         <link rel="stylesheet" href="static/css/about.css">
         <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
-    <?php
-
-    ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
