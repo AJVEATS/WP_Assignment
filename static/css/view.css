@@ -28,12 +28,13 @@ ul li {
 }
 a:link {
     color: #333333;
+    text-decoration: none;
 }
 a:hover {
    color: #0000ff;
 }
 a:visited {
-    color: #ffffff;
+    color: #333333;
 }
 .postTitle {
     font-size: 20px;

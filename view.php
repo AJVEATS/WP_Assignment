@@ -69,7 +69,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     echo "<ul>";
     echo "<p class='postTitle'>".$postTitle."</p>";
-    echo "<li>Creator id: " . $postUserId . "</li>";
+    //echo "<li>Creator id: " . $postUserId . "</li>";
     echo "<li>Content: ".$postContent."</li>";
     echo "<li>Created: " . $postDate . "</li>";
     if (isset($postEditDate)){
@@ -83,7 +83,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     } else {
 
     }
-
     echo "</ul>";
 }
 ?>
