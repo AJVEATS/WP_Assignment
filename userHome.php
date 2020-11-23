@@ -1,15 +1,21 @@
 <!DOCTYPE html>
+<?php
+include "databaseConnection.php";
+session_start();
+
+if (!isset($_COOKIE[$_SESSION['user_name']])) {
+    header('Location: index.php');
+} else {
+
+}
+
+?>
 <html>
 <head>
-    <title>User homepage</title>
+    <title><?php echo $_SESSION['user_name'] ?>'s homepage</title>
     <link rel="stylesheet" href="static/css/userHome.css">
     <link rel="stylesheet" href="static/css/navigationBar.css">
 </head>
-<?php
-include "databaseConnection.php";
-include "session.php";
-$username = $_SESSION['user_id'];
-?>
 <body>
 <div class="navigationBar" id="navigationBar">
     <a href="userHome.php" class="active">Home</a>
@@ -18,7 +24,7 @@ $username = $_SESSION['user_id'];
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <a href="view.php">All topics</a>
+            <a href="view.php?mode=get&topic=all">All topics</a>
             <a href="view.php?mode=get&topic=bestPractices">Best practices</a>
             <a href="view.php?mode=get&topic=methods">Methods</a>
             <a href="view.php?mode=get&topic=tools">Tools</a>
@@ -29,7 +35,7 @@ $username = $_SESSION['user_id'];
     </div>
 </div>
 <div>
-    <h1>Welcome Back, <?php echo $username; ?></h1>
+    <h1>Welcome Back, <?php echo $_SESSION['user_name']; ?></h1>
     <h2>Select the topic you want to research from the navigation bar</h2>
 </div>
 </body>

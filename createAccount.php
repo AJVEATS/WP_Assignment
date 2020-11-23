@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+include "databaseConnection.php";
+session_start();
+if (!isset($_COOKIE[$_SESSION['user_name']])) {
+    echo '<script>console.log("user not logged in");</script>';
+} else {
+    echo '<script>console.log("user logged in");</script>';
+    header('Location: userHome.php');
+}
+
+?>
 <html>
 <head>
     <title>Create an account</title>
@@ -7,17 +18,18 @@
 </head>
 <body>
 <?php
-include "databaseConnection.php";
 if (isset($_POST['newUserButton'])) {
     if ($_POST['newPassword'] === $_POST['newPasswordConfirm']) {
         $username = $_POST['newUsername'];
         $userEmail = $_POST['newEmail'];
         $password = $_POST['newPassword'];
         $passwordConfirm = $_POST['newPasswordConfirm'];
-        //echo "<p>Username: " . $username . "<br>Password: " . $password . "<br>Confirm password: " . $passwordConfirm . "</p>";
+
         $create_account_string = "INSERT INTO user_tbl(user_name, user_email, user_password) VALUES ('$username', '$userEmail', '$password');";
+
         if (mysqli_query($connection, $create_account_string)) {
             echo '<script>console.log("user added to the table");</script>';
+            echo '<script>alert("user added to the table");</script>';
             header('Location: userHome.php');
         }
     } else {

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_COOKIE[$_SESSION['user_name']])) {
+    echo '<script>console.log("user not logged in");</script>';
+} else {
+    echo '<script>console.log("user logged in");</script>';
+    header('Location: userHome.php');
+}
+?>
 <html>
     <head>
         <title>About us page</title>
         <link rel="stylesheet" href="static/css/about.css">
         <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
-    <?php
-        include "login.php";
-    ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
