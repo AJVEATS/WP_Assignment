@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-    <title>View all posts</title>
+    <title>View posts</title>
     <link rel="stylesheet" href="static/css/view.css">
     <link rel="stylesheet" href="static/css/navigationBar.css">
 </head>
+<?php
+include "databaseConnection.php";
+include "session.php";
+$username = $_SESSION['login_user'];
+?>
 <body>
 <div class="navigationBar" id="navigationBar">
-    <a href="index.php" class="active">Home</a>
-    <a href="about.php" class="active">About us</a>
-    <a href="createAccount.php" class="active">Create account</a>
-    <div class="loginContainer">
-        <form action="login.php" method="POST">
-            <input type="text" placeholder="Username" name="username">
-            <input type="password" placeholder="Password" name="password">
-            <button type="submit" name="userLogin" value="submit">Login</button>
-        </form>
+    <a href="userHome.php" class="active">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Topics
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="">All topics</a>
+            <a href="">Best practices</a>
+            <a href="">Methods</a>
+            <a href="">Tools</a>
+        </div>
+    </div>
+    <div class="userLogout">
+        <a href="logout.php">Logout</a>
     </div>
 </div>
 <div class="viewContent" id="viewContent">

@@ -6,17 +6,13 @@
         <link rel="stylesheet" href="static/css/navigationBar.css">
     </head>
     <?php
-        session_start();
-        include "session.php";
         include "login.php";
-        //$userCheck = $_SESSION['login_user'];
-        //echo $userCheck;
     ?>
     <body>
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
-            <a href="about.php" class="active">About us</a>
             <a href="createAccount.php" class="active">Create account</a>
+            <a href="index.php" class="active">Login</a>
             <div class="loginContainer">
                 <form action="login.php" method="POST">
                     <input type="text" placeholder="Username" name="username">

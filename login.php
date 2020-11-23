@@ -1,7 +1,8 @@
 <?php
-include "databaseConnection.php";
+    include "databaseConnection.php";
     session_start();
-    $connection = mysqli_init();
+
+    //$connection = mysqli_init();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $username = mysqli_real_escape_string($connection,$_POST['username']);
@@ -16,13 +17,13 @@ include "databaseConnection.php";
 
         if($count == 1) {
             //session_register("username");
-            $_SESSION['login_user'] = $username;
+            $_SESSION['user_id'] = $username;
 
             header("location: userHome.php");
         } else {
             $error = "Your login username or password is invalid";
-            header("location: createAccount.php");
-            echo '<script>console.log("user details are incorrect"); </script>';
+            //header("location: userHome.php");
+            //echo '<script>console.log("user details are incorrect"); </script>';
         }
 
     }
@@ -31,6 +32,5 @@ include "databaseConnection.php";
         $username = $_POST['username'];
         $password = $_POST['password'];
         $user_login_query_string = "SELECT user_name, user_password FROM user_tbl WHERE user_name='$username'";
-
     }
 ?>
