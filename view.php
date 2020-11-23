@@ -12,7 +12,11 @@ $urlTopic = $_GET['topic'];
 if ($urlTopic === "all") {
     $get_all_posts_query_string = "SELECT * FROM post_tbl";
 } else {
-    $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = '$urlTopic'";
+    if ($urlTopic === "bestPractices") {
+        $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = 'best practices'";
+    } else {
+        $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = '$urlTopic'";
+    }
 }
 
 //$get_all_posts_query_string = "SELECT * FROM post_tbl WHERE";
@@ -64,16 +68,22 @@ while ($row = mysqli_fetch_assoc($result)) {
     $postCategory = $row['post_category'];
 
     echo "<ul>";
-    echo "<a>".$postTitle."</a>";
+    echo "<p class='postTitle'>".$postTitle."</p>";
     echo "<li>Creator id: " . $postUserId . "</li>";
     echo "<li>Content: ".$postContent."</li>";
     echo "<li>Created: " . $postDate . "</li>";
-    if (!isset($postEditDate)){
-        echo "<li>Post not edited</li>";
-    } else {
+    if (isset($postEditDate)){
         echo "<li>Post edited on: " . $postEditDate . "</li>";
+    } else {
+
     }
     echo "<li>Category: " . $postCategory . "</li>";
+    if ($postUserId === $_SESSION['user_id']) {
+        echo "<a href='contentForm.php?mode=get&post_id=$postId'>Click here to edit this post</a>";
+    } else {
+
+    }
+
     echo "</ul>";
 }
 ?>

@@ -59,7 +59,7 @@ if(isset($_POST['newPost'])) {
     <input type="text" placeholder="Post title" name="postTitle">
     <select name="category">
         <option value="" disabled selected hidden>Select post category</option>
-        <option value="bestPractices">best practices</option>
+        <option value="best practices">best practices</option>
         <option value="methods">methods</option>
         <option value="tools">tools</option>
     </select><br>

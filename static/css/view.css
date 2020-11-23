@@ -26,3 +26,16 @@ ul li {
     border-radius: 5px;
     margin: 5px;
 }
+a:link {
+    color: #333333;
+}
+a:hover {
+   color: #0000ff;
+}
+a:visited {
+    color: #ffffff;
+}
+.postTitle {
+    font-size: 20px;
+    margin-top: 2px;
+}
