@@ -2,6 +2,7 @@
 <html lang="eng">
 <?php
 include "login.php";
+
 session_start();
 if (!isset($_COOKIE[$_SESSION['user_name']])) {
     //echo '<script>console.log("user not logged in");</script>';

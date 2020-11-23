@@ -16,8 +16,13 @@ ul {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    list-style-type:none;
 }
 ul li {
     background: #ffffff;
+    border-radius: 5px;
     margin: 5px;
 }

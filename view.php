@@ -8,9 +8,18 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
 } else {
 
 }
-$get_all_posts_query_string = "SELECT * FROM post_tbl";
+$urlTopic = $_GET['topic'];
+if ($urlTopic === "all") {
+    $get_all_posts_query_string = "SELECT * FROM post_tbl";
+} else {
+    $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = '$urlTopic'";
+}
+
+//$get_all_posts_query_string = "SELECT * FROM post_tbl WHERE";
 
 $result = mysqli_query($connection, $get_all_posts_query_string);
+
+//echo $urlTopic;
 ?>
 <html lang="eng">
 <head>
@@ -22,6 +31,7 @@ $result = mysqli_query($connection, $get_all_posts_query_string);
 <body>
 <div class="navigationBar" id="navigationBar">
     <a href="userHome.php" class="active">Home</a>
+    <a href="contentForm.php">New Post</a>
     <div class="dropdown">
         <button class="dropbtn">Topics
             <i class="fa fa-caret-down"></i>
@@ -37,16 +47,6 @@ $result = mysqli_query($connection, $get_all_posts_query_string);
         <a href="logout.php">Logout</a>
     </div>
 </div>
-<div class="viewContent" id="viewContent">
-    <h1>View content</h1>
-    <h2>Items title</h2>
-    <p>Date created</p>
-    <p>Last edited</p>
-    <p>Items Content</p>
-</div>
-
-<a href="contentForm.php">Create new post</a>
-
 <?php
 if (mysqli_query($connection, $get_all_posts_query_string)) {
     echo '<script>console.log("Posts received");</script>';
@@ -64,16 +64,15 @@ while ($row = mysqli_fetch_assoc($result)) {
     $postCategory = $row['post_category'];
 
     echo "<ul>";
-    echo "<li>Post id: " . $postId . "</li>";
+    echo "<a>".$postTitle."</a>";
     echo "<li>Creator id: " . $postUserId . "</li>";
-    echo "<li>Title: " . $postTitle . "</li>";
+    echo "<li>Content: ".$postContent."</li>";
     echo "<li>Created: " . $postDate . "</li>";
     if (!isset($postEditDate)){
         echo "<li>Post not edited</li>";
-    } elseif (isset($postEditDate)) {
+    } else {
         echo "<li>Post edited on: " . $postEditDate . "</li>";
     }
-    echo "<li>Content: " . $postContent . "</li>";
     echo "<li>Category: " . $postCategory . "</li>";
     echo "</ul>";
 }
