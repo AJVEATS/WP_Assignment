@@ -28,6 +28,7 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
             <a href="view.php?mode=get&topic=bestPractices">Best practices</a>
             <a href="view.php?mode=get&topic=methods">Methods</a>
             <a href="view.php?mode=get&topic=tools">Tools</a>
+            <a href="view.php?mode=get&topic=other">Other</a>
         </div>
     </div>
     <div class="userLogout">

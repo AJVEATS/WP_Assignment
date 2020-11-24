@@ -45,6 +45,7 @@ $result = mysqli_query($connection, $get_all_posts_query_string);
             <a href="view.php?mode=get&topic=bestPractices">Best practices</a>
             <a href="view.php?mode=get&topic=methods">Methods</a>
             <a href="view.php?mode=get&topic=tools">Tools</a>
+            <a href="view.php?mode=get&topic=other">Other</a>
         </div>
     </div>
     <div class="userLogout">
@@ -68,11 +69,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     $postCategory = $row['post_category'];
 
     echo "<ul>";
-    echo "<p class='postTitle'>".$postTitle."</p>";
+    echo "<p class='postTitle'>" . $postTitle . "</p>";
     //echo "<li>Creator id: " . $postUserId . "</li>";
-    echo "<li>Content: ".$postContent."</li>";
+    echo "<li>Content: " . $postContent . "</li>";
     echo "<li>Created: " . $postDate . "</li>";
-    if (isset($postEditDate)){
+    if (isset($postEditDate)) {
         echo "<li>Post edited on: " . $postEditDate . "</li>";
     } else {
 
