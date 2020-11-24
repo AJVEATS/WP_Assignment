@@ -24,7 +24,7 @@ if (isset($_POST['newUserButton'])) {
     if ($_POST['newPassword'] === $_POST['newPasswordConfirm']) {
         $username = $_POST['newUsername'];
         $userEmail = $_POST['newEmail'];
-        $password = $_POST['newPassword'];
+        $password = hash('sha512', $_POST['newPassword']);
         $passwordConfirm = $_POST['newPasswordConfirm'];
 
         $create_account_string = "INSERT INTO user_tbl(user_name, user_email, user_password) VALUES ('$username', '$userEmail', '$password');";
