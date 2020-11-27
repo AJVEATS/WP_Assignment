@@ -52,7 +52,6 @@ if (isset($_POST['updatePost'])) {
 
 if (isset($_POST['deletePost'])) {
     $deletePostId = $_POST['postId'];
-    $postCategory = $_POST['postCategory'];
     $delete_post_string = "DELETE FROM post_tbl WHERE post_id = '$deletePostId';";
     echo $delete_post_string;
     if (mysqli_query($connection, $delete_post_string)) {

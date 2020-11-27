@@ -24,6 +24,10 @@ if ($urlTopic === "all") {
 $result = mysqli_query($connection, $get_all_posts_query_string);
 
 //echo $urlTopic;
+
+if (isset($_POST['searchPosts'])) {
+
+}
 ?>
 <html lang="eng">
 <head>
@@ -52,7 +56,52 @@ $result = mysqli_query($connection, $get_all_posts_query_string);
         <a href="logout.php">Logout</a>
     </div>
 </div>
+
+<div class="searchContainer">
+    <form action="view.php" class="userSearch" method="POST">
+        <input type="text" placeholder="search 🔍" name="searchQuery" class="userSearch">
+        <input type="submit" name="searchPosts" value="search">
+    </form>
+</div>
+
 <?php
+
+if (isset($_POST['searchPosts'])) {
+    $searchQuery = $_POST['searchQuery'];
+    $search_query_string = "SELECT * FROM post_tbl WHERE post_title LIKE '%$searchQuery%'";
+
+    $searchResult = mysqli_query($connection, $search_query_string);
+
+    while ($row = mysqli_fetch_assoc($searchResult)) {
+        $postId = $row['post_id'];
+        $postUserId = $row['user_id'];
+        $postTitle = $row['post_title'];
+        $postDate = $row['post_date'];
+        $postEditDate = $row['post_edit_date'];
+        $postContent = $row['post_content'];
+        $postCategory = $row['post_category'];
+
+        echo "<ul>";
+        echo "<p class='postTitle'>" . $postTitle . "</p>";
+        //echo "<li>Creator id: " . $postUserId . "</li>";
+        echo "<li>Content: " . $postContent . "</li>";
+        echo "<li>Created: " . $postDate . "</li>";
+        if (isset($postEditDate)) {
+            echo "<li>Post edited on: " . $postEditDate . "</li>";
+        } else {
+
+        }
+        echo "<li>Category: " . $postCategory . "</li>";
+        if ($postUserId === $_SESSION['user_id']) {
+            echo "<a href='contentForm.php?mode=get&post_id=$postId'>Click here to edit this post</a>";
+        } else {
+
+        }
+        echo "</ul>";
+    }
+}
+
+
 if (mysqli_query($connection, $get_all_posts_query_string)) {
     echo '<script>console.log("Posts received");</script>';
 } else {
