@@ -5,12 +5,9 @@ session_start();
 
 if (!isset($_COOKIE[$_SESSION['user_name']])) {
     header('Location: index.php');
-} else {
-
 }
-
 ?>
-<html>
+<html lang="eng">
 <head>
     <title><?php echo $_SESSION['user_name'] ?>'s homepage</title>
     <link rel="stylesheet" href="static/css/userHome.css">

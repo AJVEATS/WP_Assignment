@@ -31,6 +31,5 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
 <div class="pageContent" id="pageContent"><h1>Web Programming Assignment</h1>
     <h2>If you do not have an account <a href="createAccount.php" class="active">click here</a></h2>
 </div>
-
 </body>
 </html>

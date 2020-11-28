@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
 <?php
 $username = "s5204859";
 $password = "THACyfAxEmXamaFjaUmhidbhmAr73roC";
 $host = "db.bucomputing.uk";
 $port = 6612;
 $database = $username;
-
 $connection = mysqli_init();
-
-$_SESSION['connection'] = $connection;
 
 if (!$connection) {
     echo "<p>Initialising MySQLi failed</p>";
@@ -25,12 +16,6 @@ if (!$connection) {
             "Error (" . mysqli_connect_errno() . "): " . mysqli_connect_error() . "</p>";
     } else {
         //echo '<script>console.log("Connected to server"); </script>';
-        //echo "<p>Connected to server: " . mysqli_get_host_info($connection) . "</p>";
-        //mysqli_close($connection);
-        //echo "<p>Disconnected from server: " . $host . "</p>";
     }
 }
 ?>
-</body>
-</html>
-

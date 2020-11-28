@@ -10,9 +10,8 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
     echo '<script>console.log("user logged in");</script>';
     header('Location: userHome.php');
 }
-
 ?>
-<html>
+<html lang="eng">
 <head>
     <title>Create an account</title>
     <link rel="stylesheet" href="static/css/createAccount.css">
@@ -45,13 +44,6 @@ if (isset($_POST['newUserButton'])) {
     <a href="index.php" class="active">Home</a>
     <a href="about.php" class="active">About us</a>
     <a href="index.php" class="active">Login</a>
-    <!--<div class="loginContainer">
-        <form action="login.php" method="POST">
-            <input type="text" placeholder="Username" name="username" class="loginContainer">
-            <input type="password" placeholder="Password" name="password" class="loginContainer">
-            <button type="submit" name="userLogin" value="submit">Login</button>
-        </form>
-    </div> -->
 </div>
 <h1>Create account</h1>
 <div>

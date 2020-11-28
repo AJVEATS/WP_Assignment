@@ -8,7 +8,7 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
     header('Location: userHome.php');
 }
 ?>
-<html>
+<html lang="eng">
     <head>
         <title>About us page</title>
         <link rel="stylesheet" href="static/css/about.css">
