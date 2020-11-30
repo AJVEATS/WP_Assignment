@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <?php
-include "databaseConnection.php";
+include "databaseConnection.php"; // Includes the databaseConnection.php script to allow this script to access the database
 
-session_start();
+session_start(); // Includes the session started in the session.php script
 
-if (!isset($_COOKIE[$_SESSION['user_name']])) {
-    header('Location: index.php');
+if (!isset($_COOKIE[$_SESSION['user_name']])) { // Checks if a users does not have a cookie in their browser
+    header('Location: index.php'); // Redirects the user to the index page (index.php)
 } else {
 
 }
 
-$urlPostId = $_GET['post_id'];
-$_SESSION['postID'] = $_GET['post_id'];
+$urlPostId = $_GET['post_id']; //Declares the variable with the value it gets from the post's id from the url
+$_SESSION['postID'] = $_GET['post_id']; // Declares a session variable called postID with he value 'post_id'
 
-if (isset($_POST['newPost'])) {
+if (isset($_POST['newPost'])) { // Checks if a user has submitted a form with a POST request method from the form 'newPost'
     $postUserId = $_SESSION['user_id'];
     $postTitle = $_POST['postTitle'];
-    $postDate = date("Y-m-d");
+    $postDate = date("Y-m-d"); // Formats the date to the format used in the database.
     $postContent = $_POST['postContent'];
     $postCategory = $_POST['category'];
 
@@ -79,6 +79,10 @@ if (isset($_POST['deletePost'])) {
         </button>
         <div class="dropdown-content">
             <a href="view.php?mode=get&topic=all">All topics</a>
+            <a href="view.php?mode=get&topic=softwareEngineering">Software engineering</a>
+            <a href="view.php?mode=get&topic=computing">Computing</a>
+            <a href="view.php?mode=get&topic=networks">Networks</a>
+            <a href="view.php?mode=get&topic=cyberSecurity">Cyber security</a>
             <a href="view.php?mode=get&topic=bestPractices">Best practices</a>
             <a href="view.php?mode=get&topic=methods">Methods</a>
             <a href="view.php?mode=get&topic=tools">Tools</a>
@@ -121,6 +125,10 @@ if (isset($urlPostId)) {
     <select name='category'>
         <option value='' disabled selected hidden>Select post category</option>
         <option value='best practices'>best practices</option>
+        <option value='software engineering'>software engineering</option>
+        <option value='computing'>computing</option>
+        <option value='networks'>networks</option>
+        <option value='cyber security'>cyber security</option>
         <option value='methods'>methods</option>
         <option value='tools'>tools</option>
         <option value='other'>other</option>

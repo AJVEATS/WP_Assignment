@@ -22,6 +22,10 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
         </button>
         <div class="dropdown-content">
             <a href="view.php?mode=get&topic=all">All topics</a>
+            <a href="view.php?mode=get&topic=softwareEngineering">Software engineering</a>
+            <a href="view.php?mode=get&topic=computing">Computing</a>
+            <a href="view.php?mode=get&topic=networks">Networks</a>
+            <a href="view.php?mode=get&topic=cyberSecurity">Cyber security</a>
             <a href="view.php?mode=get&topic=bestPractices">Best practices</a>
             <a href="view.php?mode=get&topic=methods">Methods</a>
             <a href="view.php?mode=get&topic=tools">Tools</a>

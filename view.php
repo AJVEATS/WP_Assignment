@@ -14,7 +14,9 @@ if ($urlTopic === "all") {
 } else {
     if ($urlTopic === "bestPractices") {
         $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = 'best practices'";
-    } else {
+    } elseif ($urlTopic === "cyberSecurity") {
+        $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = 'cyber security'";
+    }else {
         $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = '$urlTopic'";
     }
 }
@@ -46,6 +48,10 @@ if (isset($_POST['searchPosts'])) {
         </button>
         <div class="dropdown-content">
             <a href="view.php?mode=get&topic=all">All topics</a>
+            <a href="view.php?mode=get&topic=softwareEngineering">Software engineering</a>
+            <a href="view.php?mode=get&topic=computing">Computing</a>
+            <a href="view.php?mode=get&topic=networks">Networks</a>
+            <a href="view.php?mode=get&topic=cyberSecurity">Cyber security</a>
             <a href="view.php?mode=get&topic=bestPractices">Best practices</a>
             <a href="view.php?mode=get&topic=methods">Methods</a>
             <a href="view.php?mode=get&topic=tools">Tools</a>
@@ -72,32 +78,39 @@ if (isset($_POST['searchPosts'])) {
 
     $searchResult = mysqli_query($connection, $search_query_string);
 
-    while ($row = mysqli_fetch_assoc($searchResult)) {
-        $postId = $row['post_id'];
-        $postUserId = $row['user_id'];
-        $postTitle = $row['post_title'];
-        $postDate = $row['post_date'];
-        $postEditDate = $row['post_edit_date'];
-        $postContent = $row['post_content'];
-        $postCategory = $row['post_category'];
 
-        echo "<ul>";
-        echo "<p class='postTitle'>" . $postTitle . "</p>";
-        //echo "<li>Creator id: " . $postUserId . "</li>";
-        echo "<li>Content: " . $postContent . "</li>";
-        echo "<li>Created: " . $postDate . "</li>";
-        if (isset($postEditDate)) {
-            echo "<li>Post edited on: " . $postEditDate . "</li>";
-        } else {
+    $count = mysqli_num_rows($searchResult); // Gets the amount of rows returned from the database
 
+    if ($count == 0) {
+        echo "<h3>There are not posts that match your search</h3>";
+    } elseif ($count > 0) {
+        while ($row = mysqli_fetch_assoc($searchResult)) {
+            $postId = $row['post_id'];
+            $postUserId = $row['user_id'];
+            $postTitle = $row['post_title'];
+            $postDate = $row['post_date'];
+            $postEditDate = $row['post_edit_date'];
+            $postContent = $row['post_content'];
+            $postCategory = $row['post_category'];
+
+            echo "<ul>";
+            echo "<p class='postTitle'>" . $postTitle . "</p>";
+            //echo "<li>Creator id: " . $postUserId . "</li>";
+            echo "<li>Content: " . $postContent . "</li>";
+            echo "<li>Created: " . $postDate . "</li>";
+            if (isset($postEditDate)) {
+                echo "<li>Post edited on: " . $postEditDate . "</li>";
+            } else {
+
+            }
+            echo "<li>Category: " . $postCategory . "</li>";
+            if ($postUserId === $_SESSION['user_id']) {
+                echo "<a href='contentForm.php?mode=get&post_id=$postId'>Click here to edit this post</a>";
+            } else {
+
+            }
+            echo "</ul>";
         }
-        echo "<li>Category: " . $postCategory . "</li>";
-        if ($postUserId === $_SESSION['user_id']) {
-            echo "<a href='contentForm.php?mode=get&post_id=$postId'>Click here to edit this post</a>";
-        } else {
-
-        }
-        echo "</ul>";
     }
 }
 
