@@ -17,7 +17,9 @@ if ($urlTopic === "all") { // Checks if the topic from the URL is all
         $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = 'best practices'"; // SQL query to get best practices posts from the database
     } elseif ($urlTopic === "cyberSecurity") {
         $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = 'cyber security'"; // SQL query to get cyber security posts from the database.
-    }else {
+    } elseif ($urlTopic === 'softwareEngineering') {
+        $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = 'software engineering'"; // SQL query to get software engineering posts from the database.
+    } else {
         $get_all_posts_query_string = "SELECT * FROM post_tbl WHERE post_category = '$urlTopic'"; // SQL query to get the posts from the database with the topic from the url
     }
 }
@@ -55,7 +57,7 @@ $result = mysqli_query($connection, $get_all_posts_query_string); // Stores the 
     </div>
 </div>
 <div class="searchContainer">
-    <form action="view.php" class="userSearch" method="POST"> <<!-- Search bar for searching posts -->
+    <form action="view.php" class="userSearch" method="POST"> <!-- Search bar for searching posts -->
         <input type="text" placeholder="search 🔍" name="searchQuery" class="userSearch">
         <input type="submit" name="searchPosts" value="search">
     </form>
