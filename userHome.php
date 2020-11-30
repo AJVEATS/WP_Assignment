@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-include "databaseConnection.php";
-session_start();
+include "databaseConnection.php"; // Includes the databaseConnection.php script to allow this script to access the database
+session_start(); // Includes the session started in the session.php script
 
-if (!isset($_COOKIE[$_SESSION['user_name']])) {
-    header('Location: index.php');
+if (!isset($_COOKIE[$_SESSION['user_name']])) { // Checks if a users does not have a cookie in their browser
+    header('Location: index.php'); // Redirects the user to the index page (index.php)
 }
 ?>
 <html lang="eng">
@@ -33,11 +33,11 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) {
         </div>
     </div>
     <div class="userLogout">
-        <a href="logout.php">Logout</a>
+        <a href="logout.php">Logout</a> <!-- Logout button -->
     </div>
 </div>
 <div>
-    <h1>Welcome Back, <?php echo $_SESSION['user_name']; ?></h1>
+    <h1>Welcome Back, <?php echo $_SESSION['user_name']; ?></h1> <!-- Outputs a personalised welcome message-->
     <h2>Select the topic you want to research from the navigation bar</h2>
 </div>
 </body>

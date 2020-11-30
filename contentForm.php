@@ -7,20 +7,20 @@ session_start(); // Includes the session started in the session.php script
 if (!isset($_COOKIE[$_SESSION['user_name']])) { // Checks if a users does not have a cookie in their browser
     header('Location: index.php'); // Redirects the user to the index page (index.php)
 } else {
-
 }
 
 $urlPostId = $_GET['post_id']; //Declares the variable with the value it gets from the post's id from the url
 $_SESSION['postID'] = $_GET['post_id']; // Declares a session variable called postID with he value 'post_id'
 
 if (isset($_POST['newPost'])) { // Checks if a user has submitted a form with a POST request method from the form 'newPost'
-    $postUserId = $_SESSION['user_id'];
-    $postTitle = $_POST['postTitle'];
-    $postDate = date("Y-m-d"); // Formats the date to the format used in the database.
-    $postContent = $_POST['postContent'];
-    $postCategory = $_POST['category'];
+    $postUserId = $_SESSION['user_id']; // Declares the variable with the values entered in form by the user
+    $postTitle = $_POST['postTitle']; // ^ same as above
+    $postContent = $_POST['postContent']; // ^ same as above
+    $postCategory = $_POST['category']; // ^ same as above
+    $postDate = date("Y-m-d"); // // ^ same as above but it formats the date to the format used in the database.
 
     $create_post_string = "INSERT INTO post_tbl (user_id, post_title, post_date, post_content, post_category) VALUES ('$postUserId', '$postTitle', '$postDate', '$postContent', '$postCategory');";
+    // The variable is declared as string SQL statement to add the post to the database using the variables declared above
 
     if (mysqli_query($connection, $create_post_string)) {
         echo '<script>console.log("post added");</script>';
@@ -31,38 +31,38 @@ if (isset($_POST['newPost'])) { // Checks if a user has submitted a form with a 
     }
 }
 
-if (isset($_POST['updatePost'])) {
+if (isset($_POST['updatePost'])) { // Checks if a user has submitted a form with a POST request method from the form 'updatePost'
     //echo $_POST['updatePostId'];
-    $editPostId = $_POST['postId'];
-    $editPostTitle = $_POST['postTitle'];
-    $editPostContent = $_POST['postContent'];
-    $postEditDate = date("Y-m-d");
+    $editPostId = $_POST['postId']; // Declares the variable with the values entered in form by the user
+    $editPostTitle = $_POST['postTitle']; // ^ same as above
+    $editPostContent = $_POST['postContent']; // ^ same as above
+    $postEditDate = date("Y-m-d"); // ^ same as above but it formats the date to the format used in the database.
     $update_post_string = "UPDATE post_tbl SET post_title = '$editPostTitle', post_content = '$editPostContent', post_edit_date = '$postEditDate' WHERE post_id = '$editPostId';";
-    echo $update_post_string;
-    echo $editPostId;
-    //echo $urlPostId;
-    if (mysqli_query($connection, $update_post_string)) {
-        echo '<script>console.log("post updated");</script>';
-       header('Location: view.php?mode=get&topic=all');
+    // The variable is declared as string SQL statement to update the post in the database using the variables declared above
+    //echo $update_post_string; // Used for development and testing
+    //echo $editPostId; // Used for development and testing
+    //echo $urlPostId; // Used for development and testing
+    if (mysqli_query($connection, $update_post_string)) { // Checks if the page can connect to the database
+        echo '<script>console.log("post updated");</script>'; // Outputs status of the update
+        header('Location: view.php?mode=get&topic=all'); // Redirects the user to the view page (view.php) to see all posts
     } else {
-        echo '<script>console.log("post not updated");</script>';
-        echo $update_post_string;
+        echo '<script>console.log("post not updated");</script>'; // Outputs status of the update
+        //echo $update_post_string; // Used for development and testing
     }
 }
 
-if (isset($_POST['deletePost'])) {
-    $deletePostId = $_POST['postId'];
-    $delete_post_string = "DELETE FROM post_tbl WHERE post_id = '$deletePostId';";
+if (isset($_POST['deletePost'])) { // Checks if a user has submitted a form with a POST request method from the form 'deletePost'
+    $deletePostId = $_POST['postId']; // Declares the variable with the values entered in form by the user
+    $delete_post_string = "DELETE FROM post_tbl WHERE post_id = '$deletePostId';";  // The variable is declared as string SQL statement to delete the post from the database using the variables declared above
     echo $delete_post_string;
-    if (mysqli_query($connection, $delete_post_string)) {
-        echo '<script>console.log("post deleted");</script>';
-        header('Location: view.php?mode=get&topic=all');
+    if (mysqli_query($connection, $delete_post_string)) { // Checks if the page can connect to the database
+        echo '<script>console.log("post deleted");</script>'; // Outputs status of the delete
+        header('Location: view.php?mode=get&topic=all'); // Redirects the user to the view page (view.php) to see all posts
     } else {
-        echo '<script>console.log("post not deleted");</script>';
-        echo $delete_post_string;
+        echo '<script>console.log("post not deleted");</script>'; // Outputs status of the delete
+        //echo $delete_post_string; // Used for development and testing
     }
 }
-
 ?>
 <html lang="eng">
 <head>
@@ -90,34 +90,33 @@ if (isset($_POST['deletePost'])) {
         </div>
     </div>
     <div class="userLogout">
-        <a href="logout.php">Logout</a>
+        <a href="logout.php">Logout</a> <!-- Logout button -->
     </div>
 </div>
 <?php
-if (isset($urlPostId)) {
-    $get_post_string = "SELECT * FROM post_tbl WHERE post_id = '$urlPostId'";
-    $result = mysqli_query($connection, $get_post_string);
-    $postId = $urlPostId;
+if (isset($urlPostId)) { // Checks if there is a post id in the url
+    $get_post_string = "SELECT * FROM post_tbl WHERE post_id = '$urlPostId'"; // The variable is declared as string SQL statement to get the posts from the database using the variables declared above
+    $result = mysqli_query($connection, $get_post_string); // Stores the results returned from the database
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $postTitle = $row['post_title'];
-        $postEditDate = $row['post_edit_date'];
-        $postContent = $row['post_content'];
+    while ($row = mysqli_fetch_assoc($result)) { // Goes through all of the rows of data returned from the database
+        $postTitle = $row['post_title']; // Declares the variable with the values returned from the database
+        $postEditDate = $row['post_edit_date']; // ^ same as above
+        $postContent = $row['post_content']; // ^ same as above
         $editForm = "
     <h2>Edit post - $postTitle</h2>
     <div class='postForm' id='postForm'>
     <form action='contentForm.php' class='updatePostForm' method='POST'>
-        <input type='hidden' id='postId' name='postId' value='$postId'>
+        <input type='hidden' id='postId' name='postId' value='$urlPostId'>
         <input type='text' placeholder='Post title' name='postTitle' value='$postTitle'>
         <textarea placeholder='Enter your post here' name='postContent' rows='10' cols='200'>$postContent</textarea><br>
         <input type='submit' name='updatePost' value='Update post'>
         <button type='reset' name='clearForm' class='clearForm'>Clear form</button>
         <input type='submit' name='deletePost' value='Delete post'>
     </form>
-    </div>";
-        echo $editForm;
+    </div>"; // HTML form for editing a post stored as a PHP variable
+        echo $editForm; // Outputs the form
     }
-} elseif (!isset($urlPostId)) {
+} elseif (!isset($urlPostId)) { // Checks if the $urlPostId is not set
     $newPostForm = "<h2>Create a post</h2>
 <div class='postForm' id='postForm'>
     <form action='contentForm.php' class='newPostForm' method='POST'>
@@ -137,8 +136,8 @@ if (isset($urlPostId)) {
     <button type='reset' name='clearForm' class='clearForm'>Clear form</button>
     <input type='submit' name='newPost' value='Create post'>
     </form>
-</div>";
-    echo $newPostForm;
+</div>"; // HTML form for creating a post stored as a PHP variable
+    echo $newPostForm; // Outputs the form
 }
 ?>
 </body>
