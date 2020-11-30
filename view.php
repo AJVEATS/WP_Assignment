@@ -82,7 +82,7 @@ if (isset($_POST['searchPosts'])) {
     $count = mysqli_num_rows($searchResult); // Gets the amount of rows returned from the database
 
     if ($count == 0) {
-        echo "<h3>There are not posts that match your search</h3>";
+        echo "<h3>There are no posts that match your search</h3>";
     } elseif ($count > 0) {
         while ($row = mysqli_fetch_assoc($searchResult)) {
             $postId = $row['post_id'];
@@ -121,33 +121,41 @@ if (mysqli_query($connection, $get_all_posts_query_string)) {
     echo '<script>console.log("Posts not received");</script>';
 }
 
-while ($row = mysqli_fetch_assoc($result)) {
-    $postId = $row['post_id'];
-    $postUserId = $row['user_id'];
-    $postTitle = $row['post_title'];
-    $postDate = $row['post_date'];
-    $postEditDate = $row['post_edit_date'];
-    $postContent = $row['post_content'];
-    $postCategory = $row['post_category'];
+$count = mysqli_num_rows($result); // Gets the amount of rows returned from the database
 
-    echo "<ul>";
-    echo "<p class='postTitle'>" . $postTitle . "</p>";
-    //echo "<li>Creator id: " . $postUserId . "</li>";
-    echo "<li>Content: " . $postContent . "</li>";
-    echo "<li>Created: " . $postDate . "</li>";
-    if (isset($postEditDate)) {
-        echo "<li>Post edited on: " . $postEditDate . "</li>";
-    } else {
+if ($count == 0) {
+    echo "<h3>There are no posts for that category</h3>";
+} elseif ($count > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $postId = $row['post_id'];
+        $postUserId = $row['user_id'];
+        $postTitle = $row['post_title'];
+        $postDate = $row['post_date'];
+        $postEditDate = $row['post_edit_date'];
+        $postContent = $row['post_content'];
+        $postCategory = $row['post_category'];
 
+        echo "<ul>";
+        echo "<p class='postTitle'>" . $postTitle . "</p>";
+        //echo "<li>Creator id: " . $postUserId . "</li>";
+        echo "<li>Content: " . $postContent . "</li>";
+        echo "<li>Created: " . $postDate . "</li>";
+        if (isset($postEditDate)) {
+            echo "<li>Post edited on: " . $postEditDate . "</li>";
+        } else {
+
+        }
+        echo "<li>Category: " . $postCategory . "</li>";
+        if ($postUserId === $_SESSION['user_id']) {
+            echo "<a href='contentForm.php?mode=get&post_id=$postId'>Click here to edit this post</a>";
+        } else {
+
+        }
+        echo "</ul>";
     }
-    echo "<li>Category: " . $postCategory . "</li>";
-    if ($postUserId === $_SESSION['user_id']) {
-        echo "<a href='contentForm.php?mode=get&post_id=$postId'>Click here to edit this post</a>";
-    } else {
-
-    }
-    echo "</ul>";
 }
+
+
 ?>
 </body>
 </html>
