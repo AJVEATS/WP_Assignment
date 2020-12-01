@@ -6,7 +6,7 @@ session_start(); // Includes the session started in the session.php script
 if (!isset($_COOKIE[$_SESSION['user_name']])) { // Checks if a users does not have a cookie in their browser
     header('Location: index.php'); // Redirects the user to the index page (index.php)
 } else {
-    header('Location: viewNoAccount.php?mode=get&topic=all'); // Redirects the user to the view page for users that aren't logged in (viewNoAccount.php)
+    //header('Location: viewNoAccount.php?mode=get&topic=all'); // Redirects the user to the view page for users that aren't logged in (viewNoAccount.php)
 }
 
 $urlTopic = $_GET['topic']; // Declares the variable with the value it gets from the post topic from the url
