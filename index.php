@@ -21,6 +21,22 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) { // Checks if the user has a log 
 <div class="navigationBar" id="navigationBar">
     <a href="about.php" class="active">About</a>
     <a href="createAccount.php" class="active">Create Account</a>
+    <div class="dropdown">
+        <button class="dropbtn">Topics
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="viewNoAccount.php?mode=get&topic=all">All topics</a>
+            <a href="viewNoAccount.php?mode=get&topic=softwareEngineering">Software engineering</a>
+            <a href="viewNoAccount.php?mode=get&topic=computing">Computing</a>
+            <a href="viewNoAccount.php?mode=get&topic=networks">Networks</a>
+            <a href="viewNoAccount.php?mode=get&topic=cyberSecurity">Cyber security</a>
+            <a href="viewNoAccount.php?mode=get&topic=bestPractices">Best practices</a>
+            <a href="viewNoAccount.php?mode=get&topic=methods">Methods</a>
+            <a href="viewNoAccount.php?mode=get&topic=tools">Tools</a>
+            <a href="viewNoAccount.php?mode=get&topic=other">Other</a>
+        </div>
+    </div>
     <div class="loginContainer">
         <form action="" method="POST"> <!-- The login in form for users with POST http method -->
             <input type="text" placeholder="Username" name="username">

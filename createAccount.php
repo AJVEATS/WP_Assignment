@@ -41,7 +41,22 @@ if (isset($_POST['newUserButton'])) { // Checks if a user has submitted a form w
 <div class="navigationBar" id="navigationBar">
     <a href="index.php" class="active">Home</a>
     <a href="about.php" class="active">About us</a>
-    <a href="index.php" class="active">Login</a>
+    <div class="dropdown">
+        <button class="dropbtn">Topics
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="viewNoAccount.php?mode=get&topic=all">All topics</a>
+            <a href="viewNoAccount.php?mode=get&topic=softwareEngineering">Software engineering</a>
+            <a href="viewNoAccount.php?mode=get&topic=computing">Computing</a>
+            <a href="viewNoAccount.php?mode=get&topic=networks">Networks</a>
+            <a href="viewNoAccount.php?mode=get&topic=cyberSecurity">Cyber security</a>
+            <a href="viewNoAccount.php?mode=get&topic=bestPractices">Best practices</a>
+            <a href="viewNoAccount.php?mode=get&topic=methods">Methods</a>
+            <a href="viewNoAccount.php?mode=get&topic=tools">Tools</a>
+            <a href="viewNoAccount.php?mode=get&topic=other">Other</a>
+        </div>
+    </div>
 </div>
 <h1>Create account</h1>
 <div>

@@ -18,7 +18,22 @@ if (!isset($_COOKIE[$_SESSION['user_name']])) { // Check if a users does not hav
         <div class="navigationBar" id="navigationBar">
             <a href="index.php" class="active">Home</a>
             <a href="createAccount.php" class="active">Create account</a>
-            <a href="index.php" class="active">Login</a>
+            <div class="dropdown">
+                <button class="dropbtn">Topics
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="viewNoAccount.php?mode=get&topic=all">All topics</a>
+                    <a href="viewNoAccount.php?mode=get&topic=softwareEngineering">Software engineering</a>
+                    <a href="viewNoAccount.php?mode=get&topic=computing">Computing</a>
+                    <a href="viewNoAccount.php?mode=get&topic=networks">Networks</a>
+                    <a href="viewNoAccount.php?mode=get&topic=cyberSecurity">Cyber security</a>
+                    <a href="viewNoAccount.php?mode=get&topic=bestPractices">Best practices</a>
+                    <a href="viewNoAccount.php?mode=get&topic=methods">Methods</a>
+                    <a href="viewNoAccount.php?mode=get&topic=tools">Tools</a>
+                    <a href="viewNoAccount.php?mode=get&topic=other">Other</a>
+                </div>
+            </div>
             <div class="loginContainer">
                 <form action="login.php" method="POST"> <!-- The login in form for users with POST http method -->
                     <input type="text" placeholder="Username" name="username">
