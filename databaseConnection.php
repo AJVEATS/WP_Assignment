@@ -1,6 +1,6 @@
 <?php
-$username = "s5204859"; // Username credential to connect to the database
-$password = "THACyfAxEmXamaFjaUmhidbhmAr73roC"; // Password credential to connect to the database
+$username = "*******"; // Username credential to connect to the database
+$password = "*******"; // Password credential to connect to the database
 $host = "db.bucomputing.uk"; // Host credential to connect to the database
 $port = 6612; // Port credential to connect to the database
 $database = $username;
